@@ -2,6 +2,7 @@ from typing import List, Dict
 import mysql.connector
 import simplejson as json
 from flask import Flask, Response
+from flask import render_template
 
 app = Flask(__name__)
 
@@ -39,6 +40,7 @@ def cities() -> str:
     js = json.dumps(cities_import())
     resp = Response(js, status=200, mimetype='application/json')
     return resp
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
